@@ -1,38 +1,4 @@
-import {
-  Mail,
-  FileCheck,
-  FileSpreadsheet,
-  BookOpen,
-  ArrowRight,
-} from "lucide-react";
-
-const stats = [
-  {
-    title: "Total Enquiries",
-    value: "0",
-    icon: Mail,
-    color: "from-red-600 to-red-500",
-  },
-  {
-    title: "Certificates",
-    value: "0",
-    icon: FileCheck,
-    color: "from-green-600 to-emerald-500",
-  },
-  {
-    title: "Price Lists",
-    value: "0",
-    icon: FileSpreadsheet,
-    color: "from-orange-500 to-amber-500",
-  },
-  {
-    title: "Catalogues",
-    value: "0",
-    icon: BookOpen,
-    color: "from-slate-700 to-slate-900",
-  },
-];
-
+import { Mail } from "lucide-react";
 export default function Dashboard() {
   return (
     <div className="w-full min-h-full space-y-8 p-6 lg:p-8">

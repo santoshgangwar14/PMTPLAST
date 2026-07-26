@@ -4,7 +4,7 @@ import { ArrowRight, Download } from "lucide-react";
 
 import Container from "@/components/ui/Container";
 
-import allProducts from "@/assets/images/gallery/All_product.webp";
+import allProductsVideo from "@/assets/videos/all-products.mp4";
 
 import conduitImg from "@/assets/images/gallery/PVC CONDUIT PIPE/pvc-pipe-hero.webp";
 import bendImg from "@/assets/images/gallery/PVC BEND/bends.webp";
@@ -139,11 +139,16 @@ export default function ProductsPage() {
 
           <div className="relative">
 
-            <img
-              src={allProducts}
-              alt="PMT Plast Product Range"
-              className="mx-auto w-full max-w-2xl drop-shadow-2xl"
-            />
+         <div className="max-w-5xl mx-auto">
+  <video
+    src={allProductsVideo}
+    autoPlay
+    muted
+    loop
+    playsInline
+    className="w-full h-auto max-h-[500px] object-contain rounded-2xl shadow-xl"
+  />
+</div>
 
           </div>
 

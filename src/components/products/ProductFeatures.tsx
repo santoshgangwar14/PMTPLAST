@@ -1,7 +1,7 @@
 // src/components/products/ProductFeatures.tsx
 
 import Container from "@/components/ui/Container";
-import { ArrowRight } from "lucide-react";
+
 
 interface Feature {
   title: string;

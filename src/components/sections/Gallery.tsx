@@ -8,7 +8,7 @@ import plantOverview from "@/assets/images/posters/plant-overview.jpg";
 import shopFloor from "@/assets/images/posters/factory-clip-3.jpg";
 import extrusionLine from "@/assets/images/posters/factory-clip-4.jpg";
 import batchTesting from "@/assets/images/posters/factory-clip-5.jpg";
-import finishedGoods from "@/assets/images/posters/factory-clip-6.jpg";
+
 import allProducts from "@/assets/images/gallery/All_product.webp";
 import pipeStack from "@/assets/images/gallery/pmt-pipes-stack.jpg";
 import factoryWide from "@/assets/images/hero/hero-factory.webp";
@@ -26,7 +26,7 @@ const galleryImages: GalleryImage[] = [
   { id: "g3", src: extrusionLine, caption: "Extrusion Line" },
   { id: "g4", src: shopFloor, caption: "Shop Floor Operations" },
   { id: "g5", src: batchTesting, caption: "Batch Quality Testing" },
-  { id: "g6", src: finishedGoods, caption: "Finished Goods Handling" },
+  
   { id: "g7", src: pipeStack, caption: "Conduit Pipe Stacking" },
   { id: "g8", src: allProducts, caption: "Complete Product Range" },
 ];

@@ -14,9 +14,6 @@ import {
 } from "lucide-react";
 import Container from "@/components/ui/Container";
 import factoryImage from "@/assets/images/hero/factory2.webp";
-import qualityImage from "@/assets/images/posters/pipe-bend-test.jpg";
-import machineryImage from "@/assets/images/posters/factory-clip-4.jpg";
-import dispatchImage from "@/assets/images/posters/factory-clip-6.jpg";
 
 const capabilities = [
   { icon: Cog, title: "Automated Production", description: "Controlled extrusion and molding processes engineered for repeatable output." },
@@ -34,12 +31,6 @@ const journey = [
   { icon: Gauge, title: "Cooling", description: "Stable dimensional setting" },
   { icon: ShieldCheck, title: "Quality Testing", description: "Batch verification" },
   { icon: PackageCheck, title: "Packing & Dispatch", description: "Protected order fulfilment" },
-];
-
-const qualityPanels = [
-  { image: qualityImage, title: "Quality Laboratory", description: "Testing that supports reliable, specification-led product performance." },
-  { image: machineryImage, title: "Modern Machinery", description: "Purpose-built production equipment supporting consistent manufacturing." },
-  { image: dispatchImage, title: "Packaging & Dispatch", description: "Careful handling and packing for dependable delivery readiness." },
 ];
 
 const reveal = {
@@ -129,31 +120,10 @@ const ManufacturingProcess = () => {
           </div>
         </motion.div>
 
-        <div>
-          <div className="mb-8 flex flex-col items-center text-center">
-            <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0B4F9E]">Quality Promise</span>
-            <h3 className="mt-3 font-display text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">Built with Care. Delivered with Confidence.</h3>
-          </div>
-          <div className="grid gap-5 md:grid-cols-3">
-            {qualityPanels.map((panel, index) => (
-              <motion.article
-                key={panel.title}
-                {...reveal}
-                transition={{ duration: 0.65, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                whileHover={{ y: -3 }}
-                className="group relative min-h-[280px] overflow-hidden rounded-[28px] border border-white/90 bg-[#EEF7FC] shadow-[0_12px_32px_rgba(11,79,158,0.075),inset_0_1px_0_rgba(255,255,255,1)]"
-              >
-                <img src={panel.image} alt={panel.title} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.035]" />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,59,116,0.03),rgba(7,59,116,0.82)_100%)]" />
-                <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-[linear-gradient(110deg,rgba(255,255,255,0.36),transparent_64%)]" />
-                <div className="absolute inset-x-0 bottom-0 p-6 text-white">
-                  <h4 className="font-display text-xl font-bold">{panel.title}</h4>
-                  <p className="mt-2 text-sm leading-relaxed text-white/80">{panel.description}</p>
-                </div>
-              </motion.article>
-            ))}
-          </div>
-        </div>
+        <motion.div {...reveal} transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }} className="flex flex-col items-center text-center">
+          <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0B4F9E]">Quality Promise</span>
+          <h3 className="mt-3 font-display text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">Built with Care. Delivered with Confidence.</h3>
+        </motion.div>
       </Container>
     </section>
   );

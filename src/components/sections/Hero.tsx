@@ -287,7 +287,7 @@ export default function Hero() {
               />
               <div className="relative z-10 mt-3 rounded-lg bg-white/80 py-1.5 text-center shadow-inner backdrop-blur-md">
                 <span className="text-[10px] font-extrabold uppercase tracking-widest text-slate-800 sm:text-[11px]">
-                  Fan Boxes
+                 Casing & Capping
                 </span>
               </div>
             </motion.div>

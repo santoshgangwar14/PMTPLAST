@@ -14,7 +14,6 @@ interface QualityClip {
 const qualityClips: QualityClip[] = [
   { id: "qc1", src: "/videos/QC1.mp4", poster: "/posters/generated/QC1.jpg", label: "Dimensional Inspection" },
   { id: "qc2", src: "/videos/QC2.mp4", poster: "/posters/generated/QC2.jpg", label: "Impact Resistance Test" },
-  { id: "qc3", src: "/videos/QC3.mp4", poster: "/posters/generated/QC3.jpg", label: "Wall Thickness Check" },
   { id: "qc4", src: "/videos/QC4.mp4", poster: "/posters/generated/QC4.jpg", label: "Surface Finish Audit" },
   { id: "qc5", src: "/videos/QC5.mp4", poster: "/posters/generated/QC5.jpg", label: "Batch Sampling" },
   { id: "bend", src: "/videos/pipe-bend-test.mp4", poster: "/posters/pipe-bend-test.jpg", label: "Pipe Bend Strength Test" },

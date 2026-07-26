@@ -31,13 +31,14 @@ export default function ContactPage() {
 
     try {
       await addEnquiry({
-        name: formData.name,
-        company: formData.company,
-        phone: formData.phone,
-        email: formData.email,
-        requirement: formData.requirement,
-        message: formData.message,
-      });
+  name: formData.name,
+  company: formData.company,
+  phone: formData.phone,
+  email: formData.email,
+  state: "",
+  enquiryType: formData.requirement,
+  message: formData.message,
+});
 
       setIsSubmitted(true);
 
