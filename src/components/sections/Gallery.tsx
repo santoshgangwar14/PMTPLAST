@@ -35,8 +35,9 @@ const Gallery = () => {
   const [activeImage, setActiveImage] = useState<GalleryImage | null>(null);
 
   return (
-    <section className="bg-slate-50 py-28 lg:py-40 border-y border-slate-100">
-      <Container className="flex flex-col gap-14">
+    <section className="relative isolate overflow-hidden border-y border-slate-100 bg-[radial-gradient(circle_at_8%_14%,rgba(124,198,240,0.13),transparent_24%),radial-gradient(circle_at_92%_82%,rgba(11,79,158,0.08),transparent_26%),#FFFFFF] py-24 lg:py-28">
+      <div className="pointer-events-none absolute inset-0 opacity-[0.035] [background-image:linear-gradient(rgba(11,79,158,0.55)_1px,transparent_1px),linear-gradient(90deg,rgba(11,79,158,0.55)_1px,transparent_1px)] [background-size:76px_76px]" />
+      <Container className="relative flex flex-col gap-14 [&_h2]:text-slate-950">
         <SectionHeading
           eyebrow="Inside PMT Plast"
           title="A Look Inside Our Manufacturing Facility"
@@ -53,7 +54,7 @@ const Gallery = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.45, ease: "easeOut", delay: index * 0.05 }}
-              className={`group relative overflow-hidden rounded-2xl border border-slate-200/60 shadow-sm cursor-pointer ${img.span ?? ""}`}
+              className={`group relative overflow-hidden rounded-[32px] border border-white/90 bg-white shadow-[0_12px_32px_rgba(11,79,158,0.10),inset_0_1px_0_rgba(255,255,255,1)] transition-shadow duration-500 hover:shadow-[0_20px_48px_rgba(11,79,158,0.18)] cursor-pointer ${img.span ?? ""}`}
             >
               <img
                 src={img.src}
@@ -61,7 +62,7 @@ const Gallery = () => {
                 loading="lazy"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-[#0B4F9E]/12 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="absolute inset-0 flex items-end justify-between p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <span className="text-xs sm:text-sm font-semibold text-white leading-tight">
                   {img.caption}

@@ -9,6 +9,10 @@ import ProductsPage from "@/pages/ProductsPage";
 import QualityPage from "@/pages/QualityPage";
 import DownloadsPage from "@/pages/DownloadsPage";
 import ContactPage from "@/pages/ContactPage";
+import PVCConduitPage from "@/pages/products/PVCConduitPage";
+import PVCBendPage from "@/pages/products/PVCBendPage";
+import JunctionBoxPage from "@/pages/products/JunctionBoxPage";
+import CasingPage from "@/pages/products/CasingPage";
 
 function App() {
   const [currentHash, setCurrentHash] = useState(
@@ -32,28 +36,39 @@ function App() {
   }, []);
 
   const renderContent = () => {
-    switch (currentHash) {
-      case "#about":
-        return <AboutPage />;
+  switch (currentHash) {
+    case "#about":
+      return <AboutPage />;
 
-      case "#products":
-        return <ProductsPage />;
+    case "#products":
+      return <ProductsPage />;
 
-      case "#quality":
-        return <QualityPage />;
+    case "#products/conduit":
+      return <PVCConduitPage />;
 
-      case "#downloads":
-        return <DownloadsPage />;
+    case "#products/bend":
+      return <PVCBendPage />;
 
-      case "#contact":
-      case "#cta":
-        return <ContactPage />;
+    case "#products/fittings":
+      return <JunctionBoxPage />;
 
-      case "#home":
-      default:
-        return <HomePage />;
-    }
-  };
+    case "#products/casing":
+      return <CasingPage />;
+
+    case "#quality":
+      return <QualityPage />;
+
+    case "#downloads":
+      return <DownloadsPage />;
+
+    case "#contact":
+    case "#cta":
+      return <ContactPage />;
+
+    default:
+      return <HomePage />;
+  }
+};
 
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900 selection:bg-blue-100 selection:text-blue-900">

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { useInView, useMotionValue, useSpring } from "framer-motion";
+import { animate, useInView } from "framer-motion";
 
 interface AnimatedCounterProps {
   value: number;
@@ -8,29 +8,39 @@ interface AnimatedCounterProps {
   className?: string;
 }
 
-const AnimatedCounter = ({ value, suffix = "", duration = 1.8, className = "" }: AnimatedCounterProps) => {
+const AnimatedCounter = ({
+  value,
+  suffix = "",
+  duration = 1.8,
+  className = "",
+}: AnimatedCounterProps) => {
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const motionValue = useMotionValue(0);
-  const springValue = useSpring(motionValue, { duration: duration * 1000, bounce: 0 });
+  const isInView = useInView(ref, {
+    once: true,
+    margin: "-100px",
+  });
 
   useEffect(() => {
-    if (isInView) {
-      motionValue.set(value);
-    }
-  }, [isInView, value, motionValue]);
+    if (!isInView || !ref.current) return;
 
-  useEffect(() => {
-    const unsubscribe = springValue.on("change", (latest) => {
-      if (ref.current) {
-        ref.current.textContent = `${Math.round(latest).toLocaleString("en-IN")}${suffix}`;
-      }
+    const controls = animate(0, value, {
+      duration,
+      ease: "easeOut",
+      onUpdate(latest) {
+        if (ref.current) {
+          ref.current.textContent = `${Math.round(latest)}${suffix}`;
+        }
+      },
     });
-    return unsubscribe;
-  }, [springValue, suffix]);
+
+    return () => controls.stop();
+  }, [isInView, value, suffix, duration]);
 
   return (
-    <span ref={ref} className={className}>
+    <span
+      ref={ref}
+      className={`inline-block whitespace-nowrap ${className}`}
+    >
       0{suffix}
     </span>
   );

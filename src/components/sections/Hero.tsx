@@ -46,7 +46,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative isolate flex w-full justify-center min-h-[calc(100vh-var(--navbar-height,80px))] items-center overflow-hidden bg-slate-50 pb-12 pt-8 sm:pb-14 sm:pt-10 lg:pb-10 lg:pt-8"
+      className="relative isolate flex ... overflow-hidden bg-gradient-to-br from-[#F8FAFC] via-[#EEF4FB] to-[#E6EEF9] ..."
     >
       {/* Premium Ambient background glow */}
       <div className="pointer-events-none absolute inset-0">
@@ -54,10 +54,10 @@ export default function Hero() {
         <div className="absolute -left-32 top-20 h-96 w-96 rounded-full bg-slate-200/50 blur-[100px]" />
       </div>
 
-      <Container className="relative z-10">
+      <Container className="relative z-10 px-6 lg:px-10 xl:px-12">
         <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 xl:gap-16">
           {/* ============ LEFT: Brand & Core Pitch ============ */}
-          <div className="flex max-w-[650px] flex-col justify-center lg:pr-6 xl:pr-10">
+          <div className="flex max-w-[700px] flex-col justify-center pl-6 sm:pl-8 lg:pl-10 xl:pl-12">
             {/* Glossy ISO Trust Badge */}
             <div className="w-fit">
               <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 backdrop-blur-md px-4 py-1.5 text-sm font-bold tracking-wide text-slate-800 shadow-sm">
@@ -67,50 +67,115 @@ export default function Hero() {
             </div>
 
             {/* Professional Headline */}
-            <h1 className="mt-6 text-4xl font-extrabold leading-[1.1] tracking-tight text-slate-900 text-balance sm:text-5xl lg:text-6xl">
-              Precision Engineered
-              <span className="mt-2 block text-red-600 drop-shadow-sm">
-                Electrical Protection
-              </span>
-              <span className="mt-1 block text-3xl sm:text-4xl lg:text-5xl text-slate-700">
-                For Safe Infrastructure
-              </span>
-            </h1>
+            <h1 className="mt-6 text-4xl font-extrabold leading-[1.1] tracking-tight text-balance sm:text-5xl lg:text-6xl">
 
+  <span
+    className="block bg-gradient-to-r from-[#0B4F9E] via-[#2563EB] to-[#60A5FA] bg-clip-text text-transparent"
+    style={{
+      textShadow: "0 0 22px rgba(37,99,235,.30)",
+    }}
+  >
+    PRECISION ENGINEERED
+  </span>
+
+  <span
+    className="mt-2 block bg-gradient-to-r from-[#8B0000] via-[#C62828] to-[#EF5350] bg-clip-text text-transparent"
+    style={{
+      textShadow: "0 0 22px rgba(198,40,40,.30)",
+    }}
+  >
+    ELECTRICAL PROTECTION
+  </span>
+
+  <span
+    className="mt-2 block text-3xl font-black uppercase tracking-wide text-[#0B4F9E] sm:text-4xl lg:text-5xl"
+    style={{
+      textShadow: "0 0 18px rgba(11,79,158,.25)",
+    }}
+  >
+    FOR SAFE INFRASTRUCTURE
+  </span>
+
+</h1>
             {/* Subtext */}
-            <p className="mt-6 max-w-xl text-lg font-medium leading-relaxed text-slate-600 sm:text-xl">
-              PMT Plast manufactures high-grade PVC electrical conduits, casing-capping,
-              bends, and premium accessories that define safety, durability, and impact
-              resistance — trusted on infrastructure projects nationwide.
+            <p className="mt-6 max-w-xl text-lg font-medium leading-[1.75] text-[#F8F6F2] opacity-[0.94] sm:text-xl">
+             
+              From raw material selection to final dispatch certification, PMT Plast delivers robust, compliant conduit systems with a focus on precision, repeatability and premium industrial performance.
             </p>
 
             {/* Big Red Buttons Row */}
-            <div className="mt-10 flex flex-wrap items-center gap-4 sm:gap-6">
-              <a
-                href="#products"
-                className="group relative inline-flex items-center gap-3 overflow-hidden rounded-xl bg-red-600 px-8 py-4 text-lg font-bold text-white shadow-[0_8px_20px_-6px_rgba(220,38,38,0.5)] transition-all duration-300 hover:-translate-y-1 hover:bg-red-700 hover:shadow-[0_12px_25px_-6px_rgba(220,38,38,0.6)]"
-              >
-                <span className="relative flex items-center gap-2">
-                  Explore Products
-                  <ArrowRight size={22} className="transition-transform group-hover:translate-x-1.5" />
-                </span>
-              </a>
+           <div className="mt-10 flex flex-wrap items-center gap-5">
 
-              <a
-                href="#cta"
-                className="group inline-flex items-center gap-3 rounded-xl border-2 border-red-600 bg-white/50 backdrop-blur-sm px-8 py-4 text-lg font-bold text-red-600 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:bg-red-600 hover:text-white hover:shadow-md"
-              >
-                <Users size={22} className="transition-colors group-hover:text-white" />
-                Become a Dealer
-              </a>
-            </div>
+  {/* Primary CTA */}
+  <a
+    href="#products"
+    className="
+      group relative inline-flex items-center gap-3 overflow-hidden
+      rounded-2xl
+      bg-gradient-to-r
+      from-[#8B0000]
+      via-[#B71C1C]
+      to-[#D32F2F]
+      px-9 py-4
+      text-lg font-bold text-white
+      shadow-[0_15px_40px_rgba(183,28,28,.45)]
+      transition-all duration-500
+      hover:-translate-y-1.5
+      hover:scale-[1.03]
+      hover:shadow-[0_20px_50px_rgba(183,28,28,.60)]
+    "
+  >
+    <span className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-transparent translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-700" />
+
+    <span className="relative flex items-center gap-3">
+      Explore Products
+      <ArrowRight
+        size={22}
+        className="transition-transform duration-300 group-hover:translate-x-2"
+      />
+    </span>
+  </a>
+
+  {/* Secondary CTA */}
+  <a
+    href="#cta"
+    className="
+      group inline-flex items-center gap-3
+      rounded-2xl
+      border-2 border-[#0B4F9E]
+      bg-white/70
+      backdrop-blur-xl
+      px-9 py-4
+      text-lg font-bold
+      text-[#0B4F9E]
+      shadow-[0_12px_35px_rgba(11,79,158,.18)]
+      transition-all duration-500
+      hover:-translate-y-1.5
+      hover:scale-[1.03]
+      hover:bg-gradient-to-r
+      hover:from-[#0B4F9E]
+      hover:to-[#2563EB]
+      hover:text-white
+      hover:border-[#2563EB]
+      hover:shadow-[0_20px_45px_rgba(37,99,235,.40)]
+    "
+  >
+    <Users
+      size={22}
+      className="transition-transform duration-300 group-hover:scale-110"
+    />
+
+    Become a Dealer
+  </a>
+
+</div>
 
             {/* 2 Clean & Big Stats */}
-            <div className="mt-12 max-w-[580px] rounded-2xl border border-white/60 bg-white/50 p-6 shadow-sm backdrop-blur-md sm:p-8">
+            <div className="mt-12 ml-4 max-w-[620px] rounded-3xl border border-white/60 bg-white/60 p-8 shadow-[0_20px_60px_rgba(0,0,0,.08)] backdrop-blur-xl sm:ml-0">
               <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-6">
                 
                 {/* Stat 1 */}
-                <div className="flex flex-col gap-2 border-b border-slate-200 pb-6 sm:border-b-0 sm:border-r sm:pb-0 sm:pr-6">
+                <div className="flex min-w-0 flex-col items-center justify-center gap-2 border-b border-slate-200 pb-6 text-center sm:border-b-0 sm:border-r sm:pb-0 sm:pr-6">
                   <span className="font-display text-5xl font-extrabold leading-none text-slate-900">
                     <AnimatedCounter value={100} suffix="+" />
                   </span>
@@ -120,13 +185,18 @@ export default function Hero() {
                 </div>
 
                 {/* Stat 2 */}
-                <div className="flex flex-col gap-2">
-                  <span className="font-display text-5xl font-extrabold leading-none text-slate-900">
-                    <AnimatedCounter value={25} suffix="+" />
-                  </span>
-                  <span className="text-sm font-bold tracking-wider text-slate-500 uppercase mt-1">
-                    Years of Engineering<br/>Excellence
-                  </span>
+<div className="flex min-w-0 flex-col items-center justify-center gap-2 text-center">
+
+  <span className="font-display text-5xl font-black leading-none text-[#8B0000]">
+    <AnimatedCounter value={25} suffix="+" />
+  </span>
+
+  <span className="mt-2 text-sm font-bold uppercase tracking-[0.15em] text-[#0B4F9E]">
+    Years of Engineering
+    <br />
+    Excellence
+  </span>
+
                 </div>
 
               </div>

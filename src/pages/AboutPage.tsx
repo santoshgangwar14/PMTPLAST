@@ -7,11 +7,8 @@ import {
   Layers,
   Users,
   Quote,
-  FileText,
-  Download,
-  ArrowRight,
-  UserRound,
 } from "lucide-react";
+
 import Container from "@/components/ui/Container";
 import pipesDecor from "@/assets/images/hero/pvc-pipe-real.webp";
 
@@ -48,194 +45,296 @@ const highlightStats = [
 
 export default function AboutPage() {
   return (
-    <div className="bg-white min-h-screen pb-0">
+    <div className="bg-[linear-gradient(135deg,#FDF9F4_0%,#F8F2EA_45%,#F4ECE2_100%)]">
 
-      {/* 1. Founder / Company Story Hero */}
-      <section className="relative overflow-hidden bg-slate-50 border-b border-slate-100 py-16 lg:py-24">
-        {/* Decorative dot grid, top-left */}
+      {/* ========================================================= */}
+      {/* ABOUT US */}
+      {/* ========================================================= */}
+
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#F8F1E8] via-[#F4E8DA] to-[#EFDCC8] py-20 lg:py-28">
+
+        {/* Decorative Dot Pattern */}
         <div
-          className="absolute top-10 left-6 h-24 w-24 opacity-40 pointer-events-none hidden lg:block"
+          className="absolute left-8 top-10 hidden h-24 w-24 opacity-40 lg:block"
           style={{
-            backgroundImage: "radial-gradient(rgba(11,79,158,0.35) 1.5px, transparent 1.5px)",
+            backgroundImage:
+              "radial-gradient(rgba(255,244,194,0.22) 1.5px, transparent 1.5px)",
             backgroundSize: "10px 10px",
           }}
         />
 
-        {/* Decorative pipe image, top-right */}
+        {/* Premium Glow */}
+        <div className="absolute -left-32 top-20 h-[420px] w-[420px] rounded-full bg-[#FFF4C2]/15 blur-[120px]" />
+
+        <div className="absolute right-0 top-0 h-[500px] w-[500px] rounded-full bg-[#F4C430]/15 blur-[140px]" />
+
+        {/* Decorative Pipes */}
         <img
           src={pipesDecor}
           alt=""
           aria-hidden="true"
-          className="pointer-events-none select-none absolute -right-16 top-0 h-full w-[420px] object-cover opacity-90 hidden lg:block [mask-image:linear-gradient(to_left,black_40%,transparent_95%)]"
+          className="pointer-events-none absolute right-0 top-0 hidden h-full w-[300px] select-none object-cover opacity-35 lg:block [mask-image:linear-gradient(to_left,black_30%,transparent_100%)]"
         />
 
-        <Container className="relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <Container className="relative z-10 max-w-7xl mx-auto px-8 lg:px-12 xl:px-16">
 
-            {/* Left: Founder card */}
+          <div className="grid items-center gap-20 lg:grid-cols-[430px_minmax(0,1fr)]">
+
+            {/* ================================================= */}
+            {/* LEFT */}
+            {/* ================================================= */}
+
             <motion.div
-              initial={{ opacity: 0, x: -24 }}
+              initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="lg:col-span-5 flex flex-col gap-5"
+              className="mx-auto lg:ml-8 w-full max-w-[440px]"
             >
-              <div className="rounded-2xl overflow-hidden border-2 border-[#0B4F9E]/20 shadow-xl shadow-blue-950/5 bg-white">
-                {/* FOUNDER PHOTO SLOT */}
-                <div className="aspect-[4/5] w-full bg-slate-100 overflow-hidden">
-                  <img
-                    src={founderPhoto}
-                    alt="Pradeep Singh, Founder, PMT Plast"
-                    className="h-full w-full object-cover object-center"
-                  />
-                </div>
-                <div className="bg-[#0B4F9E] px-6 py-4 text-center">
-                  <p className="text-white font-bold text-lg leading-tight">Pradeep Singh</p>
-                  <p className="text-blue-100 text-xs font-medium mt-0.5">Founder, PMT Plast</p>
-                </div>
-              </div>
+              <div className="overflow-hidden rounded-[28px] border border-[#FFD700]/35 bg-white/80 backdrop-blur-xl shadow-[0_30px_80px_rgba(0,0,0,0.28)] backdrop-blur-xl">
 
-              <div className="flex items-center gap-4 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-                <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-blue-50 text-[#0B4F9E]">
-                  <UserRound className="h-5 w-5" />
-                </div>
-                <div>
-                  <p className="text-lg font-extrabold text-slate-900 leading-none">25+ Years</p>
-                  <p className="text-xs text-slate-500 mt-1">of Industry Experience</p>
-                </div>
+                {/* Image */}
+                <div className="relative overflow-hidden bg-transparent flex items-center justify-center p-6">
+  <img
+    src={founderPhoto}
+    alt="Pradeep Singh"
+    className="w-full h-auto max-h-[560px] object-contain object-center"
+  />
+</div>
+
+                {/* Footer */}
+                <div className="-mt-px bg-gradient-to-r from-[#3B0000] via-[#650000] to-[#3B0000] py-6 px-8 text-center border-t border-[#D4AF37]/30">
+
+  <h3
+    className="text-[42px] font-black leading-none tracking-wide"
+    style={{
+      color: "#FFFFFF",
+      textShadow:
+        "0 1px 0 #ffffff, 0 0 10px rgba(255,255,255,0.45), 0 0 22px rgba(255,255,255,0.25)",
+    }}
+  >
+    PRADEEP SINGH
+  </h3>
+
+  <p
+    className="mt-3 text-xl font-semibold uppercase tracking-[0.35em]"
+    style={{
+      color: "#F8F8F8",
+      textShadow: "0 0 10px rgba(255,255,255,0.35)",
+    }}
+  >
+    Founder
+  </p>
+
+</div>
+
               </div>
             </motion.div>
 
-            {/* Right: Copy */}
+            {/* ================================================= */}
+            {/* RIGHT CONTENT */}
+            {/* ================================================= */}
+
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="lg:col-span-7 flex flex-col gap-6 pt-16 lg:pt-20"
+              transition={{ duration: .6 }}
+              className="flex flex-col justify-center gap-7"
             >
-              <span className="inline-flex w-fit items-center gap-2 rounded-full bg-[#0B4F9E] px-4 py-2 text-xs font-bold uppercase tracking-widest text-white">
-                <Building2 className="h-3.5 w-3.5" />
-                About PMT Plast
-              </span>
 
-              <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                Building Trust Through Quality &{" "}
-                <span className="text-[#0B4F9E]">Experience</span>
-              </h1>
+              {/* Eyebrow */}
 
-              <div className="flex flex-col gap-2">
-                <p className="text-lg font-semibold text-slate-700">
-                  Driven by Experience. Committed to Quality.
-                </p>
-                <div className="h-[3px] w-14 bg-[#0B4F9E]" />
+             <span className="inline-flex w-fit items-center gap-2 rounded-full border border-[#C69214]/40 bg-[#2A2A2A]/70 px-5 py-2 text-xs font-bold uppercase tracking-[0.3em] text-[#FFD700] shadow-[0_0_25px_rgba(255,215,0,.15)] backdrop-blur-xl">
+  <Building2 className="h-4 w-4 text-[#FFD700]" />
+  ABOUT PMT PLAST
+</span>
+
+              {/* Heading */}
+
+         <h1 className="max-w-[760px] text-4xl sm:text-5xl lg:text-[52px] xl:text-[58px] font-extrabold uppercase leading-[1.12] tracking-tight">
+  <span
+    style={{
+      color: "#0B4F9E",
+      textShadow: "0 0 15px rgba(11,79,158,.25)",
+    }}
+  >
+    BUILDING TRUST THROUGH
+  </span>
+
+  <span
+    className="block mt-2"
+    style={{
+      color: "#1565D8",
+      textShadow: "0 0 18px rgba(21,101,216,.25)",
+    }}
+  >
+    QUALITY & EXPERIENCE
+  </span>
+</h1>
+
+              {/* Accent Line */}
+
+              <div className="flex items-center gap-4">
+
+                <div className="h-[4px] w-20 rounded-full bg-[linear-gradient(90deg,#FFF4C2_0%,#FFD700_45%,#C69214_100%)]" />
+
+                <span
+  className="text-sm font-bold uppercase tracking-[0.35em]"
+  style={{
+    color: "#8B0000",
+  }}
+>
+  SINCE 2000
+</span>
+
               </div>
 
-              <div className="flex flex-col gap-4 text-slate-600 leading-relaxed">
+              {/* Paragraphs */}
+
+              <div className="max-w-[760px] space-y-6 text-lg leading-8 text-white opacity-95">
+
                 <p>
-                  PMT Plast was founded with a clear vision: to manufacture{" "}
-                  <span className="font-semibold text-slate-900">
-                    dependable PVC conduit systems
-                  </span>{" "}
-                  built for long-term performance and safety. Every product that leaves our
-                  facility reflects a consistent commitment to quality and customer satisfaction.
+
+                  PMT Plast was founded with a clear vision to manufacture
+                  dependable PVC conduit systems engineered for long-term
+                  performance, electrical safety and reliability.
+
                 </p>
+
                 <p>
-                  With over <span className="font-semibold text-[#0B4F9E]">25 years</span> of
-                  hands-on industry experience,{" "}
-                  <span className="font-semibold text-slate-900">Mr. Pradeep Singh</span> has
-                  built deep technical expertise across PVC conduit manufacturing, process
-                  engineering, product quality, and market requirements.
+
+                  With over <strong
+  className="font-extrabold"
+  style={{
+    color: "#0B4F9E",
+    textShadow: "0 0 8px rgba(11,79,158,.15)",
+  }}
+>
+  25 Years
+</strong>
+                  {" "}of industry expertise, Mr. Pradeep Singh has built a
+                  trusted manufacturing organization focused on innovation,
+                  product quality and customer satisfaction.
+
                 </p>
+
                 <p>
-                  Under his leadership, PMT Plast focuses on modern manufacturing practices,
-                  rigorous quality control, and dependable products trusted by distributors,
-                  electricians, contractors, and infrastructure projects nationwide.
+
+                  Today PMT Plast proudly serves dealers, distributors,
+                  contractors and infrastructure projects with premium PVC
+                  conduit solutions manufactured using modern production
+                  technology and strict quality standards.
+
                 </p>
+
               </div>
 
-              <div className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-blue-50 text-[#0B4F9E]">
-                  <Quote className="h-5 w-5" />
+              {/* Premium Quote */}
+
+              <div className="rounded-[24px] border border-[#FFD700]/30 bg-white/85 backdrop-blur-xl p-7 shadow-[0_20px_60px_rgba(0,0,0,0.24)] backdrop-blur-xl">
+
+                <div className="flex items-start gap-5">
+
+                  <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-[#FFD700]/35 bg-[#4A0000]/50 text-[#FFD700] shadow-[0_0_20px_rgba(255,215,0,0.12)]">
+
+                    <Quote className="h-6 w-6"/>
+
+                  </div>
+
+                 <p className="text-lg lg:text-xl font-bold leading-8 text-white">
+  <span
+    style={{
+      color: "#0B4F9E",
+      textShadow: "0 0 10px rgba(11,79,158,.20)",
+    }}
+  >
+    Quality is not just our standard —
+  </span>
+
+  <span
+    className="ml-2"
+    style={{
+      color: "#B22222",
+      textShadow: "0 0 10px rgba(178,34,34,.20)",
+    }}
+  >
+    it's the foundation of everything we manufacture.
+  </span>
+</p>
+
                 </div>
-                <p className="text-base sm:text-lg font-bold leading-snug text-slate-900">
-                  Quality is not just our standard —{" "}
-                  <span className="text-[#0B4F9E]">
-                    it's the foundation of everything we manufacture.
-                  </span>
-                </p>
+
               </div>
+
             </motion.div>
 
           </div>
+
         </Container>
+
       </section>
 
-      {/* 2. Highlight Stats Bar */}
-      <section className="py-10 bg-white">
+      {/* ========================================================= */}
+      {/* HIGHLIGHT STATS */}
+      {/* ========================================================= */}
+
+      <section className="relative py-20 bg-gradient-to-b from-[#FAF6F0] to-[#F4ECE2]">
+
         <Container>
-          <div className="rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 lg:divide-x divide-slate-100">
+
+          <div className="overflow-hidden rounded-[30px] border border-[#D4AF37]/40 bg-white shadow-[0_25px_80px_rgba(212,175,55,.25)]">
+
+            <div className="grid grid-cols-1 divide-y divide-[#FFF4C2]/30 sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-4 lg:divide-x">
+
               {highlightStats.map((item, idx) => (
+
                 <motion.div
                   key={item.id}
-                  initial={{ opacity: 0, y: 16 }}
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.08 }}
-                  className="flex items-start gap-4 p-6 sm:p-7"
+                  transition={{ duration: .5, delay: idx * .08 }}
+                  whileHover={{ y: -6 }}
+                  className="group flex flex-col items-center p-10 text-center transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,215,0,0.12)]"
                 >
-                  <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-blue-50 text-[#0B4F9E]">
-                    <item.icon className="h-5 w-5" />
+
+                  <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl border border-[#FFD700]/35 bg-[linear-gradient(135deg,#4A0000_0%,#650000_60%,#2B0000_100%)] shadow-[0_10px_30px_rgba(0,0,0,0.18)] transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_22px_rgba(255,215,0,0.16)]">
+
+                    <item.icon className="h-7 w-7 text-[#FFD700]" />
+
                   </div>
-                  <div>
-                    <p className="text-xl font-extrabold text-slate-900 leading-none">
-                      {item.value}
-                    </p>
-                    <p className="text-sm font-bold text-slate-800 mt-1.5">{item.label}</p>
-                    <p className="text-xs text-[#0B4F9E] mt-1 leading-relaxed font-medium">
-                      {item.description}
-                    </p>
-                  </div>
+
+                  <h3 className="text-3xl font-extrabold text-[#FFD700]">
+
+                    {item.value}
+
+                  </h3>
+
+                  <p className="mt-3 text-base font-bold text-[#FFF4C2]">
+
+                    {item.label}
+
+                  </p>
+
+                  <p className="mt-3 text-sm leading-7 text-[#F8F6F2]/80">
+
+                    {item.description}
+
+                  </p>
+
                 </motion.div>
+
               ))}
-            </div>
-          </div>
-        </Container>
-      </section>
 
-      {/* 3. Bottom CTA Bar */}
-      <section className="bg-[#0B4F9E]">
-        <Container>
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-6 py-8">
-            <div className="flex items-center gap-4 text-center sm:text-left">
-              <div className="hidden sm:flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-white/10 text-white">
-                <FileText className="h-5 w-5" />
-              </div>
-              <p className="text-white/90 text-sm sm:text-base font-medium">
-                Explore our wide range of quality PVC conduit products.
-              </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
-              <a
-                href="#products"
-                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 text-sm font-bold text-[#0B4F9E] hover:bg-blue-50 transition-colors duration-300"
-              >
-                View Our Products
-                <ArrowRight className="h-4 w-4" />
-              </a>
-              <a
-                href="#downloads"
-                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl border border-white/30 px-6 py-3.5 text-sm font-bold text-white hover:bg-white/10 transition-colors duration-300"
-              >
-                <Download className="h-4 w-4" />
-                Download Catalogue
-              </a>
-            </div>
           </div>
+
         </Container>
+
       </section>
+
 
     </div>
   );

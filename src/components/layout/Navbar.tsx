@@ -1,34 +1,58 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import {
+  ChevronDown,
+  ChevronRight,
+  Menu,
+  X,
+} from "lucide-react";
 
 import Logo from "@/components/ui/Logo";
-import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 import { navLinks } from "@/data/navigation";
-import { NAVBAR_HEIGHT, NAVBAR_HEIGHT_CSS_VAR } from "@/lib/layout";
+import {
+  NAVBAR_HEIGHT,
+  NAVBAR_HEIGHT_CSS_VAR,
+} from "@/lib/layout";
+
+const productLinks = [
+  {
+    label: "PVC Conduit Pipe",
+    href: "#products/conduit",
+  },
+  {
+    label: "PVC Bend",
+    href: "#products/bend",
+  },
+  {
+    label: "Conduit Fittings & Accessories",
+    href: "#products/fittings",
+  },
+  {
+    label: "PVC Casing & Capping",
+    href: "#products/casing",
+  },
+];
 
 const Navbar = () => {
   const headerRef = useRef<HTMLElement>(null);
+
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [productOpen, setProductOpen] = useState(false);
+  const [mobileProductOpen, setMobileProductOpen] =
+    useState(false);
+
   const [activeHash, setActiveHash] = useState(
     window.location.hash || "#home"
   );
 
-  // NAVBAR HEIGHT — SINGLE SOURCE OF TRUTH
-  // ---------------------------------------------------------------------
-  // The navbar is the only component that knows its own real, rendered
-  // height. Instead of every page/section guessing that number in Tailwind
-  // classes (pt-24, pt-28, pt-32, calc(100vh-72px) ...), we measure it here
-  // and publish it once as the `--navbar-height` CSS variable on the
-  // document root. Every consumer (App.tsx's layout, page heroes, etc.)
-  // reads that same variable, so they can never drift out of sync with the
-  // navbar again — even if its height changes later (responsive tweaks,
-  // an announcement bar, font-size changes, etc.).
   useLayoutEffect(() => {
     const syncHeight = () => {
-      const height = headerRef.current?.offsetHeight ?? NAVBAR_HEIGHT;
+      const height =
+        headerRef.current?.offsetHeight ??
+        NAVBAR_HEIGHT;
+
       document.documentElement.style.setProperty(
         NAVBAR_HEIGHT_CSS_VAR,
         `${height}px`
@@ -37,188 +61,387 @@ const Navbar = () => {
 
     syncHeight();
 
-    const resizeObserver = new ResizeObserver(syncHeight);
-    if (headerRef.current) resizeObserver.observe(headerRef.current);
+    const resizeObserver =
+      new ResizeObserver(syncHeight);
 
-    window.addEventListener("resize", syncHeight);
+    if (headerRef.current) {
+      resizeObserver.observe(headerRef.current);
+    }
+
+    window.addEventListener(
+      "resize",
+      syncHeight
+    );
 
     return () => {
       resizeObserver.disconnect();
-      window.removeEventListener("resize", syncHeight);
+      window.removeEventListener(
+        "resize",
+        syncHeight
+      );
     };
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 10);
+    const handleScroll = () =>
+      setScrolled(window.scrollY > 10);
 
     const handleHash = () => {
-      setActiveHash(window.location.hash || "#home");
+      setActiveHash(
+        window.location.hash || "#home"
+      );
+
       setMobileOpen(false);
+      setProductOpen(false);
+      setMobileProductOpen(false);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    window.addEventListener("hashchange", handleHash);
+    window.addEventListener(
+      "scroll",
+      handleScroll
+    );
+
+    window.addEventListener(
+      "hashchange",
+      handleHash
+    );
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("hashchange", handleHash);
+      window.removeEventListener(
+        "scroll",
+        handleScroll
+      );
+
+      window.removeEventListener(
+        "hashchange",
+        handleHash
+      );
     };
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    document.body.style.overflow =
+      mobileOpen ? "hidden" : "";
 
     return () => {
       document.body.style.overflow = "";
     };
-  }, [mobileOpen]);
+  }, []);
 
   return (
     <>
-      <header
-        ref={headerRef}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "bg-white shadow-lg border-b border-slate-200"
-            : "bg-white border-b border-slate-100"
-        }`}
-        style={{ height: NAVBAR_HEIGHT }}
+
+<header
+  ref={headerRef}
+  className={`fixed inset-x-0 z-50 transition-all duration-500 ${
+    scrolled
+      ? "bg-gradient-to-r from-[#4a0000] via-[#7a0000] to-[#4a0000] border-b border-red-400/30 shadow-[0_0_40px_rgba(255,0,0,.35)] backdrop-blur-xl"
+      : "bg-gradient-to-r from-[#3b0000]/95 via-[#650000]/95 to-[#3b0000]/95 border-b border-red-500/20 shadow-[0_0_25px_rgba(255,0,0,.20)] backdrop-blur-xl"
+  }`}
+  style={{ height: NAVBAR_HEIGHT }}
+>
+  <Container className="h-full">
+    <div
+      className="
+        flex
+        h-full
+        items-center
+        justify-between
+        rounded-full
+        px-6
+        lg:px-8
+        xl:px-10
+        py-2
+        bg-gradient-to-r
+        from-[#4A0000]
+        via-[#6B0000]
+        to-[#4A0000]
+        border
+        border-red-500/20
+        shadow-[0_10px_35px_rgba(120,0,0,.18)]
+        backdrop-blur-2xl
+        transition-all
+        duration-500
+      "
+    >
+      {/* Logo */}
+
+      <a
+        href="#home"
+        className="flex shrink-0 items-center"
+        aria-label="PMT Plast"
       >
-        <Container className="h-full">
-          <div className="flex h-full items-center justify-between">
+        <Logo />
+      </a>
 
-            {/* Logo */}
-            <a
-              href="#home"
-              className="flex items-center shrink-0"
-              aria-label="PMT Plast"
-            >
-              <Logo />
-            </a>
+      {/* Desktop Navigation */}
 
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-8">
-              {navLinks.map((item) => {
-                const active = activeHash === item.href;
-                const isContact = item.href === "#contact";
+      <nav className="hidden items-center gap-8 lg:flex">
+        {navLinks.map((item) => {
+          const active =
+            activeHash === item.href ||
+            (item.href === "#products" &&
+              activeHash.startsWith("#products"));
 
-                if (isContact) {
-                  return (
-                    <a
-                      key={item.href}
-                      href={item.href}
-                      className="btn-primary inline-flex items-center rounded-full px-6 py-2.5 text-[15px] font-bold text-white"
-                    >
-                      {item.label}
-                    </a>
-                  );
-                }
-
-                return (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    className={`relative text-[15px] font-semibold transition-all duration-200 ${
-                      active
-                        ? "text-[#0B4F9E]"
-                        : "text-slate-700 hover:text-[#0B4F9E]"
-                    }`}
-                  >
-                    {item.label}
-
-                    {active && (
-                      <span className="absolute left-0 -bottom-2 h-[2px] w-full bg-gradient-to-r from-[#0B4F9E] to-[#C9992E] rounded-full" />
-                    )}
-                  </a>
-                );
-              })}
-            </nav>
-
-            {/* Mobile Menu */}
-            <button
-              onClick={() => setMobileOpen(true)}
-              className="lg:hidden h-11 w-11 rounded-lg border border-slate-200 flex items-center justify-center"
-              aria-label="Open Menu"
-            >
-              <Menu className="h-6 w-6" />
-            </button>
-
-          </div>
-        </Container>
-      </header>
-
-      {/* Mobile Drawer */}
-
-      <AnimatePresence>
-
-        {mobileOpen && (
-
-          <motion.div
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
-            transition={{ duration: 0.25 }}
-            className="fixed inset-0 bg-white z-[999]"
-          >
-            <Container>
-
+          if (item.href === "#products") {
+            return (
               <div
-                className="flex items-center justify-between"
-                style={{ height: NAVBAR_HEIGHT }}
+                key={item.href}
+                className="relative"
+                onMouseEnter={() => setProductOpen(true)}
+
+                onMouseLeave={() => setProductOpen(false)}
               >
+                <div className="flex items-center gap-2">
 
-                <Logo />
+  <a
+    href="#products"
+    className={`group relative text-[15px] font-semibold transition-all duration-300 ${
+      active
+        ? "text-[#FFD700]"
+        : "text-[#F4D35E] hover:text-[#FFD700]"
+    }`}
+  >
+    Products
+  </a>
 
-                <button
-                  onClick={() => setMobileOpen(false)}
-                  className="h-11 w-11 rounded-lg border border-slate-200 flex items-center justify-center"
-                >
-                  <X className="h-6 w-6" />
-                </button>
+  <button
+    type="button"
+    onClick={(e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      setProductOpen(!productOpen);
+    }}
+    className="text-[#F4D35E] hover:text-[#FFD700]"
+  >
+    <ChevronDown
+      size={16}
+      className={`transition-transform duration-300 ${
+        productOpen ? "rotate-180" : ""
+      }`}
+    />
+  </button>
 
+</div>
+
+                <span
+                  className={`absolute inset-x-0 -bottom-2 mx-auto h-[3px] w-full rounded-full bg-gradient-to-r from-[#FFD700] via-[#FFC107] to-[#FFB300] transition-all duration-300 ${
+                    active
+                      ? "scale-x-100 opacity-100"
+                      : "scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100"
+                  }`}
+                />
+
+                <AnimatePresence>
+                  {productOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute left-0 top-14 w-[360px] overflow-hidden rounded-3xl border border-red-600/20 bg-gradient-to-br from-white via-[#FFFDF8] to-[#FFF4D6] shadow-[0_25px_60px_rgba(0,0,0,.18)]"
+                    >
+                      {productLinks.map((product) => (
+                        <a
+                          key={product.href}
+                          href={product.href}
+                          className="group flex items-center justify-between border-b border-amber-100 px-6 py-5 transition duration-300 hover:bg-gradient-to-r hover:from-[#0B4F9E] hover:to-[#1565C0] hover:text-white last:border-none"
+                        >
+                          <div className="flex items-center gap-4">
+  <div className="h-3 w-3 rounded-full bg-gradient-to-r from-[#FFD700] to-[#FF9800] group-hover:bg-white" />
+
+  <span className="font-semibold">
+    {product.label}
+  </span>
+</div>
+
+                          <ChevronRight
+  size={18}
+  className="transition duration-300 group-hover:translate-x-1"
+/>
+                        </a>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
+            );
+          }
 
-              <nav className="mt-8 flex flex-col">
+          return (
+            <a
+              key={item.href}
+              href={item.href}
+              className={`group relative text-[15px] font-semibold transition-all duration-300 ${
+                active
+                  ? "text-[#FFD700] drop-shadow-[0_0_10px_rgba(255,215,0,0.8)]"
+                  : "text-[#F4D35E] hover:text-[#FFD700] hover:drop-shadow-[0_0_8px_rgba(255,215,0,0.6)]"
+              }`}
+            >
+              {item.label}
 
-                {navLinks.filter((item) => item.href !== "#contact").map((item) => {
+              <span
+                className={`absolute inset-x-0 -bottom-2 mx-auto h-[3px] w-full rounded-full bg-gradient-to-r from-[#FFD700] via-[#FFC107] to-[#FFB300] transition-all duration-300 ${
+                  active
+                    ? "scale-x-100 opacity-100"
+                    : "scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100"
+                }`}
+              />
+            </a>
+          );
+        })}
+      </nav>
 
-                  const active = activeHash === item.href;
+      {/* Mobile Menu Button */}
 
-                  return (
-                    <a
-                      key={item.href}
-                      href={item.href}
-                      onClick={() => setMobileOpen(false)}
-                      className={`py-5 border-b border-slate-100 text-lg font-semibold ${
+      <button
+        onClick={() => setMobileOpen(true)}
+        className="lg:hidden flex h-11 w-11 items-center justify-center rounded-xl border border-blue-100/70 bg-white/70 text-slate-700 shadow-sm backdrop-blur-xl transition hover:bg-blue-50"
+        aria-label="Open Menu"
+      >
+        <Menu className="h-6 w-6" />
+      </button>
+    </div>
+  </Container>
+</header>
+
+{/* Mobile Drawer */}
+
+<AnimatePresence>
+  {mobileOpen && (
+    <motion.div
+      initial={{ opacity: 0, x: "100%" }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: "100%" }}
+      transition={{ duration: 0.25 }}
+      className="fixed inset-0 z-[999] bg-white"
+    >
+      <Container>
+        <div
+          className="flex items-center justify-between border-b border-slate-200 bg-white/80 backdrop-blur-xl"
+          style={{ height: NAVBAR_HEIGHT }}
+        >
+          <Logo />
+
+          <button
+            onClick={() => setMobileOpen(false)}
+            className="flex h-11 w-11 items-center justify-center rounded-lg border border-slate-200"
+          >
+            <X className="h-6 w-6" />
+          </button>
+        </div>
+
+        <nav className="mt-8 flex flex-col">
+          {navLinks
+            .filter((item) => item.href !== "#contact")
+            .map((item) => {
+              const active =
+                activeHash === item.href ||
+                (item.href === "#products" &&
+                  activeHash.startsWith("#products"));
+
+              if (item.href === "#products") {
+                return (
+                  <div
+                    key={item.href}
+                    className="border-b border-slate-100"
+                  >
+                    <button
+                      onClick={() =>
+                        setMobileProductOpen(
+                          !mobileProductOpen
+                        )
+                      }
+                      className={`flex w-full items-center justify-between px-4 py-5 text-left text-lg font-semibold transition ${
                         active
-                          ? "text-[#0B4F9E]"
-                          : "text-slate-800"
+                          ? "bg-blue-100/15 text-[#FFD700]"
+                          : "text-[#FFD700] hover:bg-blue-50"
                       }`}
                     >
-                      {item.label}
-                    </a>
-                  );
-                })}
+                      Products
 
-                <Button
-                  className="btn-primary mt-8"
-                  onClick={() => {
-                    window.location.href = "#contact";
-                    setMobileOpen(false);
-                  }}
+                      <ChevronDown
+                        size={18}
+                        className={`transition-transform duration-300 ${
+                          mobileProductOpen
+                            ? "rotate-180"
+                            : ""
+                        }`}
+                      />
+                    </button>
+
+                    <AnimatePresence>
+                      {mobileProductOpen && (
+                        <motion.div
+                          initial={{
+                            opacity: 0,
+                            height: 0,
+                          }}
+                          animate={{
+                            opacity: 1,
+                            height: "auto",
+                          }}
+                          exit={{
+                            opacity: 0,
+                            height: 0,
+                          }}
+                          className="overflow-hidden bg-slate-50"
+                        >
+                          {productLinks.map(
+                            (product) => (
+                              <a
+                                key={product.href}
+                                href={product.href}
+                                onClick={() => {
+                                  setMobileOpen(false);
+                                  setMobileProductOpen(
+                                    false
+                                  );
+                                }}
+                                className="block border-t border-slate-200 px-10 py-4 text-base text-slate-700 transition hover:bg-[#0B4F9E] hover:text-white"
+                              >
+                                {product.label}
+                              </a>
+                            )
+                          )}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              }
+
+              return (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={() =>
+                    setMobileOpen(false)
+                  }
+                  className={`border-b border-slate-100 px-4 py-5 text-lg font-semibold transition ${
+                    active
+                      ? "bg-blue-100/15 text-[#FFD700]"
+                      : "text-[#FFD700] hover:bg-blue-50"
+                  }`}
                 >
-                  Contact Us
-                </Button>
+                  {item.label}
+                </a>
+              );
+            })}
 
-              </nav>
+          <a
+            href="#contact"
+            onClick={() => setMobileOpen(false)}
+            className="border-b border-slate-100 px-4 py-5 text-lg font-semibold text-[#FFD700] transition hover:bg-blue-50"
+          >
+            Contact Us
+          </a>
+        </nav>
+      </Container>
+    </motion.div>
+  )}
+</AnimatePresence>
 
-            </Container>
-
-          </motion.div>
-
-        )}
-
-      </AnimatePresence>
     </>
   );
 };
