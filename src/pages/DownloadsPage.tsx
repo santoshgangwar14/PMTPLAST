@@ -15,7 +15,12 @@ import { getLatestFile } from "@/admin/services/fileService";
 
 interface DownloadItem {
   id: string;
-  category: "catalogue" | "price-list" | "technical" | "profile";
+  category:
+    | "catalogue"
+    | "price-list"
+    | "technical-datasheet"
+    | "corporate-profile"
+    | "certificates";
   title: string;
   description: string;
   icon: any;
@@ -39,16 +44,23 @@ const DEFAULT_ITEMS: DownloadItem[] = [
   },
   {
     id: "technical",
-    category: "technical",
+    category: "technical-datasheet",
     title: "Technical Datasheet",
     description: "Latest Technical Documents",
     icon: Layers,
   },
   {
     id: "profile",
-    category: "profile",
+    category: "corporate-profile",
     title: "Corporate Profile",
     description: "Latest Company Profile",
+    icon: ShieldCheck,
+  },
+  {
+    id: "certificates",
+    category: "certificates",
+    title: "Certificates",
+    description: "Latest Quality Certificates",
     icon: ShieldCheck,
   },
 ];
@@ -66,43 +78,52 @@ export default function DownloadsPage() {
   async function loadFiles() {
     const catalogue = await getLatestFile("catalogue");
     const price = await getLatestFile("price-list");
-    const technical = await getLatestFile("technical");
-    const profile = await getLatestFile("profile");
+    const technical = await getLatestFile("technical-datasheet");
+const profile = await getLatestFile("corporate-profile");
+const certificate = await getLatestFile("certificates");
 
     setDownloads([
-      {
-        id: "catalogue",
-        category: "catalogue",
-        title: catalogue?.name || "Product Catalogue",
-        description: "Latest Product Catalogue",
-        icon: FileText,
-        url: catalogue?.url,
-      },
-      {
-        id: "price-list",
-        category: "price-list",
-        title: price?.name || "Price List",
-        description: "Latest Dealer Price List",
-        icon: FileSpreadsheet,
-        url: price?.url,
-      },
-      {
-        id: "technical",
-        category: "technical",
-        title: technical?.name || "Technical Datasheet",
-        description: "Latest Technical Documents",
-        icon: Layers,
-        url: technical?.url,
-      },
-      {
-        id: "profile",
-        category: "profile",
-        title: profile?.name || "Corporate Profile",
-        description: "Latest Company Profile",
-        icon: ShieldCheck,
-        url: profile?.url,
-      },
-    ]);
+  {
+    id: "catalogue",
+    category: "catalogue",
+    title: catalogue?.name || "Product Catalogue",
+    description: "Latest Product Catalogue",
+    icon: FileText,
+    url: catalogue?.url,
+  },
+  {
+    id: "price-list",
+    category: "price-list",
+    title: price?.name || "Price List",
+    description: "Latest Dealer Price List",
+    icon: FileSpreadsheet,
+    url: price?.url,
+  },
+  {
+    id: "technical",
+    category: "technical-datasheet",
+    title: technical?.name || "Technical Datasheet",
+    description: "Latest Technical Documents",
+    icon: Layers,
+    url: technical?.url,
+  },
+  {
+    id: "profile",
+    category: "corporate-profile",
+    title: profile?.name || "Corporate Profile",
+    description: "Latest Company Profile",
+    icon: ShieldCheck,
+    url: profile?.url,
+  },
+  {
+    id: "certificates",
+    category: "certificates",
+    title: certificate?.name || "Certificates",
+    description: "Latest Quality Certificates",
+    icon: ShieldCheck,
+    url: certificate?.url,
+  },
+]);
   }
 
   const handleDownload = (item: DownloadItem) => {

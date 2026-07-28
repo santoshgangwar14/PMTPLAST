@@ -5,16 +5,14 @@ import {
 } from "react-router-dom";
 
 import Login from "../pages/Login";
-
 import Dashboard from "../pages/Dashboard";
-
 import Enquiries from "../pages/Enquiries";
-
 import Certificates from "../pages/Certificates";
-
 import PriceList from "../pages/PriceList";
-
 import Catalogue from "../pages/Catalogue";
+import TechnicalDatasheet from "../pages/TechnicalDatasheet";
+import CorporateProfile from "../pages/CorporateProfile";
+
 
 import Layout from "../components/Layout";
 
@@ -37,11 +35,13 @@ export default function AdminRoutes() {
   return (
     <Routes>
 
+      {/* Login */}
       <Route
         path="/login"
         element={<Login />}
       />
 
+      {/* Dashboard */}
       <Route
         path="/"
         element={
@@ -53,6 +53,7 @@ export default function AdminRoutes() {
         }
       />
 
+      {/* Enquiries */}
       <Route
         path="/enquiries"
         element={
@@ -64,6 +65,7 @@ export default function AdminRoutes() {
         }
       />
 
+      {/* Certificates */}
       <Route
         path="/certificates"
         element={
@@ -75,6 +77,19 @@ export default function AdminRoutes() {
         }
       />
 
+      {/* Catalogue */}
+      <Route
+        path="/catalogue"
+        element={
+          <Private>
+            <Layout>
+              <Catalogue />
+            </Layout>
+          </Private>
+        }
+      />
+
+      {/* Price List */}
       <Route
         path="/price-list"
         element={
@@ -86,12 +101,25 @@ export default function AdminRoutes() {
         }
       />
 
+      {/* Technical Datasheet */}
       <Route
-        path="/catalogue"
+        path="/technical-datasheet"
         element={
           <Private>
             <Layout>
-              <Catalogue />
+              <TechnicalDatasheet />
+            </Layout>
+          </Private>
+        }
+      />
+
+      {/* Corporate Profile */}
+      <Route
+        path="/corporate-profile"
+        element={
+          <Private>
+            <Layout>
+              <CorporateProfile />
             </Layout>
           </Private>
         }

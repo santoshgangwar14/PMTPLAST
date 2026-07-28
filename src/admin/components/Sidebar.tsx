@@ -5,6 +5,8 @@ import {
   FileCheck,
   FileSpreadsheet,
   BookOpen,
+  FileText,
+  Building2,
   LogOut,
   Factory,
 } from "lucide-react";
@@ -26,14 +28,24 @@ const menuItems = [
     path: "/admin/certificates",
   },
   {
+    title: "Catalogue",
+    icon: BookOpen,
+    path: "/admin/catalogue",
+  },
+  {
     title: "Price List",
     icon: FileSpreadsheet,
     path: "/admin/price-list",
   },
   {
-    title: "Catalogue",
-    icon: BookOpen,
-    path: "/admin/catalogue",
+    title: "Technical Datasheet",
+    icon: FileText,
+    path: "/admin/technical-datasheet",
+  },
+  {
+    title: "Corporate Profile",
+    icon: Building2,
+    path: "/admin/corporate-profile",
   },
 ];
 

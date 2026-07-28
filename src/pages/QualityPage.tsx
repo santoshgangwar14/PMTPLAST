@@ -38,10 +38,10 @@ const TIMELINE_STEPS = [
 export default function QualityPage() {
   return (
     <div className="bg-slate-50 text-slate-900 pb-[120px]">
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#2B0000] via-[#4A0000] to-[#650000] text-white py-20 lg:py-28">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,215,0,0.12),transparent_72%)]" />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(255,85,85,0.12),transparent_60%)]" />
-        <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#2B0000]/95 to-transparent" />
+  <section className="relative overflow-hidden bg-gradient-to-r from-[#237FD3] via-[#347FD4] to-[#CF6868] text-white py-20 lg:py-28">
+    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.16),transparent_72%)]" />
+    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.10),transparent_60%)]" />
+    <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#347FD4]/45 to-transparent" />
 
         <Container className="relative z-10 max-w-7xl mx-auto">
           <div className="grid items-center gap-16 lg:grid-cols-[0.55fr_0.45fr]">
@@ -52,7 +52,7 @@ export default function QualityPage() {
               transition={{ duration: 0.6 }}
               className="space-y-8"
             >
-              <div className="inline-flex items-center gap-3 rounded-full border border-[#FFD700]/25 bg-[#3b0000]/40 px-4 py-2 text-[11px] uppercase tracking-[0.35em] text-[#F4C430] shadow-[0_10px_30px_rgba(255,215,0,0.18)]">
+              <div className="inline-flex items-center gap-3 rounded-full border border-[#D9A520]/35 bg-white/12 px-4 py-2 text-[11px] uppercase tracking-[0.35em] text-[#FFD54A] shadow-[0_10px_30px_rgba(255,215,0,0.18)]">
                 QUALITY ASSURANCE
               </div>
               <div className="space-y-4 max-w-2xl">
@@ -60,10 +60,10 @@ export default function QualityPage() {
   className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl leading-tight"
   style={{
     background:
-      "linear-gradient(180deg,#FFFDF5 0%,#FFF2B3 18%,#FFE27A 35%,#FFD700 55%,#F6C343 72%,#C69214 100%)",
+      "linear-gradient(180deg,#FFFBEA 0%,#FFE69A 18%,#FFD13A 38%,#DFA61D 60%,#C1870F 82%,#8F6200 100%)",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
-    filter: "drop-shadow(0 3px 18px rgba(255,215,0,.30))",
+    filter: "drop-shadow(0 4px 20px rgba(201,146,18,.35))",
   }}
 >
   Premium manufacturing quality engineered for every project.
@@ -83,13 +83,13 @@ export default function QualityPage() {
 
               <div className="grid gap-4 sm:grid-cols-3">
                 {[
-                  { label: "ISO Certified", accent: "text-[#F4C430]" },
-                  { label: "BIS Compliant", accent: "text-[#F4C430]" },
-                  { label: "100% Batch Tested", accent: "text-[#F4C430]" },
+                  { label: "ISO Certified", accent: "text-[#FFD54A]" },
+                  { label: "BIS Compliant", accent: "text-[#FFD54A]" },
+                  { label: "100% Batch Tested", accent: "text-[#FFD54A]" },
                 ].map((badge) => (
                   <div
                     key={badge.label}
-                    className={`rounded-3xl border border-[#FFD700]/20 bg-[#3b0000]/55 px-5 py-4 text-center text-sm font-semibold tracking-[0.02em] shadow-[0_25px_70px_-35px_rgba(255,215,0,0.18)] backdrop-blur-xl ${badge.accent}`}
+                    className={`rounded-3xl border border-[#D9A520]/35 bg-white/12 px-5 py-4 text-center text-sm font-semibold tracking-[0.02em] shadow-[0_25px_70px_-35px_rgba(255,215,0,0.18)] backdrop-blur-xl ${badge.accent}`}
                   >
                     {badge.label}
                   </div>
@@ -102,20 +102,20 @@ export default function QualityPage() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="relative overflow-hidden rounded-[32px] border border-[#FFD700]/20 bg-[#2b0000]/70 shadow-[0_40px_120px_-60px_rgba(255,215,0,0.18)]"
+              className="relative overflow-hidden rounded-[32px] border border-[#D9A520]/35 bg-white/12 shadow-[0_40px_120px_-60px_rgba(255,215,0,0.18)]"
             >
               <img
                 src={heroFactory}
                 alt="Factory quality inspection"
                 className="h-[420px] w-full object-cover sm:h-[520px] lg:h-[620px]"
               />
-              <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(43,0,0,0.28),transparent_40%)]" />
-              <div className="pointer-events-none absolute left-6 top-6 grid h-24 w-24 rounded-3xl border border-[#FFD700]/20 bg-[#3b0000]/45 p-4 text-sm text-[#F4C430] shadow-[0_25px_60px_-35px_rgba(255,215,0,0.22)]">
-                <span className="font-semibold tracking-[0.18em] uppercase text-[#F4C430]">Blueprint</span>
+              <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(15,55,110,0.18),transparent_45%)]" />
+              <div className="pointer-events-none absolute left-6 top-6 grid h-24 w-24 rounded-3xl border border-[#D9A520]/35 bg-white/12 p-4 text-sm text-[#FFD54A] shadow-[0_25px_60px_-35px_rgba(255,215,0,0.22)]">
+                <span className="font-semibold tracking-[0.18em] uppercase text-[#FFD54A]">Blueprint</span>
                 <span className="mt-1 text-xs text-[#F8F6F2]">Overview</span>
               </div>
-              <div className="pointer-events-none absolute right-6 bottom-6 grid gap-2 rounded-3xl border border-[#FFD700]/20 bg-[#2a0000]/80 px-5 py-4 text-[#F8F6F2] shadow-[0_25px_60px_-35px_rgba(255,215,0,0.22)]">
-                <span className="text-[11px] uppercase tracking-[0.3em] text-[#F4C430]">Engineering Grid</span>
+              <div className="pointer-events-none absolute right-6 bottom-6 grid gap-2 rounded-3xl border border-[#D9A520]/35 bg-white/12 px-5 py-4 text-[#F8F6F2] shadow-[0_25px_60px_-35px_rgba(255,215,0,0.22)]">
+                <span className="text-[11px] uppercase tracking-[0.3em] text-[#FFD54A]">Engineering Grid</span>
                 <span className="text-sm font-semibold text-[#F8F6F2]">Precision. Control. Repeatability.</span>
               </div>
             </motion.div>

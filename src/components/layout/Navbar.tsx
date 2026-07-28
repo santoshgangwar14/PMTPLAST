@@ -134,10 +134,10 @@ const Navbar = () => {
 <header
   ref={headerRef}
   className={`fixed inset-x-0 z-50 transition-all duration-500 ${
-    scrolled
-      ? "bg-gradient-to-r from-[#4a0000] via-[#7a0000] to-[#4a0000] border-b border-red-400/30 shadow-[0_0_40px_rgba(255,0,0,.35)] backdrop-blur-xl"
-      : "bg-gradient-to-r from-[#3b0000]/95 via-[#650000]/95 to-[#3b0000]/95 border-b border-red-500/20 shadow-[0_0_25px_rgba(255,0,0,.20)] backdrop-blur-xl"
-  }`}
+  scrolled
+  ? "bg-gradient-to-r from-[#6BB9F0]/95 via-[#3E8EDB]/95 to-[#D85C5C]/95 border-b border-white/15 shadow-[0_12px_30px_rgba(0,0,0,.12)] backdrop-blur-xl"
+  : "bg-gradient-to-r from-[#8CCCF5]/95 via-[#58A7E8]/95 to-[#E97878]/95 border-b border-white/10 shadow-[0_8px_24px_rgba(0,0,0,.08)] backdrop-blur-xl"
+}`}
   style={{ height: NAVBAR_HEIGHT }}
 >
   <Container className="h-full">
@@ -147,21 +147,9 @@ const Navbar = () => {
         h-full
         items-center
         justify-between
-        rounded-full
         px-6
-        lg:px-8
-        xl:px-10
-        py-2
-        bg-gradient-to-r
-        from-[#4A0000]
-        via-[#6B0000]
-        to-[#4A0000]
-        border
-        border-red-500/20
-        shadow-[0_10px_35px_rgba(120,0,0,.18)]
-        backdrop-blur-2xl
-        transition-all
-        duration-500
+  lg:px-8
+  xl:px-10
       "
     >
       {/* Logo */}
@@ -340,77 +328,73 @@ const Navbar = () => {
                 (item.href === "#products" &&
                   activeHash.startsWith("#products"));
 
-              if (item.href === "#products") {
-                return (
-                  <div
-                    key={item.href}
-                    className="border-b border-slate-100"
-                  >
-                    <button
-                      onClick={() =>
-                        setMobileProductOpen(
-                          !mobileProductOpen
-                        )
-                      }
-                      className={`flex w-full items-center justify-between px-4 py-5 text-left text-lg font-semibold transition ${
-                        active
-                          ? "bg-blue-100/15 text-[#FFD700]"
-                          : "text-[#FFD700] hover:bg-blue-50"
-                      }`}
-                    >
-                      Products
+             if (item.href === "#products") {
+  return (
+    <div
+      key={item.href}
+      className="border-b border-slate-100"
+    >
+      <div className="flex items-center justify-between">
 
-                      <ChevronDown
-                        size={18}
-                        className={`transition-transform duration-300 ${
-                          mobileProductOpen
-                            ? "rotate-180"
-                            : ""
-                        }`}
-                      />
-                    </button>
+        <a
+          href="#products"
+          onClick={() => {
+            setMobileOpen(false);
+            setMobileProductOpen(false);
+          }}
+          className={`flex-1 px-4 py-5 text-lg font-semibold transition ${
+            active
+              ? "bg-blue-100/15 text-[#FFD700]"
+              : "text-[#FFD700] hover:bg-blue-50"
+          }`}
+        >
+          Products
+        </a>
 
-                    <AnimatePresence>
-                      {mobileProductOpen && (
-                        <motion.div
-                          initial={{
-                            opacity: 0,
-                            height: 0,
-                          }}
-                          animate={{
-                            opacity: 1,
-                            height: "auto",
-                          }}
-                          exit={{
-                            opacity: 0,
-                            height: 0,
-                          }}
-                          className="overflow-hidden bg-slate-50"
-                        >
-                          {productLinks.map(
-                            (product) => (
-                              <a
-                                key={product.href}
-                                href={product.href}
-                                onClick={() => {
-                                  setMobileOpen(false);
-                                  setMobileProductOpen(
-                                    false
-                                  );
-                                }}
-                                className="block border-t border-slate-200 px-10 py-4 text-base text-slate-700 transition hover:bg-[#0B4F9E] hover:text-white"
-                              >
-                                {product.label}
-                              </a>
-                            )
-                          )}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                );
-              }
+        <button
+          type="button"
+          onClick={() =>
+            setMobileProductOpen(!mobileProductOpen)
+          }
+          className="px-5 py-5 text-[#FFD700]"
+        >
+          <ChevronDown
+            size={18}
+            className={`transition-transform duration-300 ${
+              mobileProductOpen ? "rotate-180" : ""
+            }`}
+          />
+        </button>
 
+      </div>
+
+      <AnimatePresence>
+        {mobileProductOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="overflow-hidden bg-slate-50"
+          >
+            {productLinks.map((product) => (
+              <a
+                key={product.href}
+                href={product.href}
+                onClick={() => {
+                  setMobileOpen(false);
+                  setMobileProductOpen(false);
+                }}
+                className="block border-t border-slate-200 px-10 py-4 text-base text-slate-700 transition hover:bg-[#0B4F9E] hover:text-white"
+              >
+                {product.label}
+              </a>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
               return (
                 <a
                   key={item.href}

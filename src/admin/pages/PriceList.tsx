@@ -1,6 +1,6 @@
 import FileManager from "../components/FileManager";
 
-export default function PriceList() {
+export default function PriceListManager() {
   return (
     <FileManager
       folder="price-list"
